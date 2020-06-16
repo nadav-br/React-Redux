@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchRandomPerson } from "../state/action/person.action";
 
 function Person() {
-    
-    const { data, is_loading, error_msg } = useSelector(state => state.person);
+     
+    const { data, isLoading, errorMSg } = useSelector(state => state.person);
     const dispatch = useDispatch();
-    const get_random_Person = () => dispatch(fetchRandomPerson());
+    const getRandomPerson = () => dispatch(fetchRandomPerson());
 
-  if (is_loading) return <LoadTxt>Loading data...</LoadTxt>;
-  if (error_msg) return <h1>{error_msg}</h1>;
+  if (isLoading) return <LoadTxt>Loading data...</LoadTxt>;
+  if (errorMSg) return <h1>{errorMSg}</h1>;
 
   if (Object.keys(data).length) {
     const {
@@ -25,14 +25,14 @@ function Person() {
             {first} {last}
           </Label>
         </Box>
-        <Btn size="lg" onClick={get_random_Person}>
+        <Btn size="lg" onClick={getRandomPerson}>
           Fetch Another
         </Btn>
       </>
     );
   }
   return (
-    <Btn size="lg" onClick={get_random_Person}>
+    <Btn size="lg" onClick={getRandomPerson}>
       Fetch Person
     </Btn>
   );

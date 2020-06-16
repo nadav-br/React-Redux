@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { increment, decrement } from "../state/action/counter.action";
+import { increment, decrement, reset } from "../state/action/counter.action";
 import styled from "styled-components";
 
 function Counter() {
@@ -11,8 +11,10 @@ function Counter() {
     return (
         <Box>
             <Btn onClick={()=> dispatch(increment(1))}>+</Btn>
+            <Btn onClick={()=> dispatch(increment(5))}>+5</Btn>
             <Label>Count: {count}</Label>
             <Btn onClick={()=> dispatch(decrement())}>-</Btn>
+            <Btn onClick={()=> dispatch(reset())}>X</Btn>
         </Box>
     )
 }
@@ -30,8 +32,8 @@ const Btn = styled.button`
   border: solid 2px #4e4e4e;
   width: 40px;
   height: 40px;
-  padding-top: 15px;
-  font-size: 32px;
+  padding-top: 10px;
+  font-size: 22px;
   background: #787878;
   color: white;
   cursor: pointer;

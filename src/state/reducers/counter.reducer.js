@@ -1,11 +1,13 @@
-import { INCREMENT, DECREMENT } from "../action/counter.action";
+import { INCREMENT, DECREMENT, RESET } from "../action/counter.action";
 
 const reducer = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
+      return state + action.payload;
     case DECREMENT:
       return state - 1;
+    case RESET:
+      return state = 0;
     default:
       return state;
   }
